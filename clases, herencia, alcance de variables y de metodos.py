@@ -12,7 +12,7 @@ class notasAlumno():
 
 	def notas(self,alumno=False,materia=""):
 		arrNotas = {
-			"jose":{
+			"jesus":{
 				1:[7,6,9],
 				2:[8,8,10],
 				3:[8,7,6,10],
@@ -27,9 +27,18 @@ class notasAlumno():
 		}
 
 		if(alumno):
-			if(materia != ""):
-				return arrNotas[alumno][materia]
-			return arrNotas[alumno]
+			if(arrNotas.get(alumno)):
+				if(materia != ""):
+					try:
+						return arrNotas[alumno][materia]
+					except Exception as e:
+						print("La materia no existe")
+				
+				if(arrNotas.get(alumno)):
+					return arrNotas[alumno]
+				else:
+					print("El alumno no existe")
+					exit()
 
 	def __calculaPromedio(self,notas,alumno):
 		x=0
@@ -51,6 +60,7 @@ class notasAlumno():
 		if self.alumno !="" and self.materia == "":
 			
 			nota = self.notas(self.alumno);
+
 			self.__calculaPromedio(nota,self.alumno)
 		
 		elif self.alumno !="" and self.materia != "":
@@ -61,17 +71,19 @@ class notasAlumno():
 				except:
 					self.materia = input("Ingrese la materia del alumno, debe ser un numero entre 1 y 4: ")
 				
-			nota = self.notas(self.alumno,);
+			nota = self.notas(self.alumno,materia);
+
+
 			nota = {self.materia:nota}
 			self.__calculaPromedio(nota,self.alumno)
 
 		else:
 			print("Debe ingresar al menos el nombre del alumno")
 
+	def getPromedioAlumno(self,alumno):
+		nota = self.notas(alumno);
+		self.__calculaPromedio(nota,alumno)
 
-
-#notas = notasAlumno()
-#notas.getPromedio()
 
 class Login(notasAlumno):
 	
@@ -85,13 +97,11 @@ class Login(notasAlumno):
 			except:
 				print("El usuario deben ser letras y la contrasena numeros")
 
-		
 	def roles(self,all=False,id=0):
 		if (all):
 			return {1:"Administrador",2:"Profesor",3:"Alumno"}
 		elif id!=0:
 			return datosDiccionario[id]
-			
 
 	def usuarios(self,all=False,user=""):
 		arr = {
@@ -105,9 +115,20 @@ class Login(notasAlumno):
 		elif user!="":
 			return arr[user]
 
+	def getDataAlumno(self):
+		usu = self.usuarios(self,True)
+		data = {};
+		for user in usu:
+			if usu[user]['rol'] == 3:
+				#agrega dicionarios dentro de otros diccionarios 
+				data.setdefault(user,{'rol':usu[user]['rol'],'contrasenna':usu[user]['contrasenna']})
+		return data
+
+
 
 login = Login()
-login.getPromedio()
+
+
 usuarios = login.usuarios(True);
 
 if login.usuario in usuarios:
@@ -118,14 +139,20 @@ if login.usuario in usuarios:
 		roles = login.roles(True)
 
 		if usuarios[login.usuario]["rol"] in roles:
+			
 			if(roles[usuarios[login.usuario]["rol"]] == "Administrador"):
-				pass
+				alumn = login.getDataAlumno()
+				print("Los alumnuos registrados son: ")
+				for al in alumn:
+					print(al," | ",end="")
+
+				login.getPromedio()
 
 			elif(roles[usuarios[login.usuario]["rol"]] == "Profesor"):
 				pass
 
 			else:
-				pass
+				login.getPromedioAlumno(login.usuario)
 
 	else:
 		print("La combinación de usuario y contraseña no exite")
