@@ -1,0 +1,14 @@
+setup.py
+PaqueteCalculos.egg-info/PKG-INFO
+PaqueteCalculos.egg-info/SOURCES.txt
+PaqueteCalculos.egg-info/dependency_links.txt
+PaqueteCalculos.egg-info/top_level.txt
+package/__init__.py
+package/area/__init__.py
+package/area/area.py
+package/basicos/__init__.py
+package/basicos/basico.py
+package/operacion/__init__.py
+package/operacion/calcula.py
+package/raiz/__init__.py
+package/raiz/raiz.py

@@ -1,0 +1,12 @@
+Para distribuir un paquete:
+
+1) Agrupar el código del proyeto con el objetivo de la POO, con todos sus archivos __ini__.py.
+2) En la raiz del proyecto crear un archivo setup.py como el que aprece aquí
+3) Situarse al nivel del archivo setup.py desde la consola y correr los siguientes comandos:
+	
+	python "nombre_archivo" sdist (Creará el distribuible)
+	Ir a la carpeta dist que se crea y luego: pip3 install "nombre_paquete" (Instalrá el paquete en directorio de paquetes de python en la PC)
+
+4) Para desinstalar un paquete correr desde cualquier lado en la consola:
+	
+	pip3 uninstall "nombre_paquete"
