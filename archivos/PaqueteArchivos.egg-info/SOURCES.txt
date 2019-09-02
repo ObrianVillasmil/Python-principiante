@@ -1,0 +1,9 @@
+setup.py
+PaqueteArchivos.egg-info/PKG-INFO
+PaqueteArchivos.egg-info/SOURCES.txt
+PaqueteArchivos.egg-info/dependency_links.txt
+PaqueteArchivos.egg-info/top_level.txt
+package/__init__.py
+package/acciones/__init__.py
+package/acciones/crear.py
+package/acciones/leer.py
