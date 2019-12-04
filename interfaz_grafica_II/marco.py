@@ -30,9 +30,8 @@ class crearVentana(frame):
 		else:
 			print("No se inicializo la ventana, contacte al administrador")
 
-
-
 ventana = crearVentana()
 ventana.paramRaiz(ventana.titulo,ventana.resizableX,ventana.resizableY, ventana.colorFondo,ventana.icono)
-ventana.crearFrame()
+frame = ventana.crearFrame();
+ventana.agregar(frame)
 ventana.raiz.mainloop()

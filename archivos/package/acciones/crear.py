@@ -37,7 +37,7 @@ class CrearArchivo():
 			modificar = input("Desea modificar una línea del archivo.? (y/n): ")
 
 			if modificar == "y":
-				self.archivo = open(self.nombre_archivo+".txt","r+") #r+ lectura ye scritura de un archivo
+				self.archivo = open(self.nombre_archivo+".txt","r+") #r+ lectura y escritura de un archivo
 			
 				#leer linea por linea y devolver una lista de las lineas
 				lineas =self.archivo.readlines()
@@ -47,7 +47,7 @@ class CrearArchivo():
 					print(str(x)+") "+linea)
 					x+=1
 
-				modificaLinea = int(input("Cual linea desea modifiar: "))
+				modificaLinea  = int(input("Cual linea desea modifiar: "))
 				nuevoContenido = input("Escriba el texto para modificar: ")
 				
 				#el metodo seek() coloca el puntero en el carcater que se le indique como parametro y empieza a escribir desde esa posicion

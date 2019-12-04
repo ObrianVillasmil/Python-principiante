@@ -9,7 +9,7 @@ raiz.title("Primera ventana")
 #Le agregamos un icono a la ventana
 raiz.iconbitmap("icono.ico")
 
-#Podemos ajustable el tamano de la ventana con el mause en X y Y
+#Podemos ajustable el tamano de la ventana con el mouse en X y Y
 raiz.resizable(True,False)
 
 #Podemos darle un tamano especifco (en pixeles) a la raiz (Marco) de la ventana

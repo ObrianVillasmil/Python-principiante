@@ -1,0 +1,7 @@
+setup.py
+Validaciones.egg-info/PKG-INFO
+Validaciones.egg-info/SOURCES.txt
+Validaciones.egg-info/dependency_links.txt
+Validaciones.egg-info/top_level.txt
+validaciones/__init__.py
+validaciones/validar.py
